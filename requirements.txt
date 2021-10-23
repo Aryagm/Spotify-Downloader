@@ -1,3 +1,4 @@
 spotipy==2.19.0
 streamlit==1.1.0
 spotdl==3.8.0
+python-dotenv==0.19.1

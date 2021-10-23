@@ -1,8 +1,14 @@
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="03837d09dbcd49c5b1657f8eb61875d3",
-                                                           client_secret="bd86168e23394850b0911987dfec807f"))
+CLIENT_ID = os.getenv('CLIENT_ID')
+CLIENT_SECRET = os.getenv('CLIENT_SECRET')
+
+sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=CLIENT_ID,
+                                                           client_secret=CLIENT_SECRET))
 
 def get_song(query:str):
     results = sp.search(q=query, limit=1)
