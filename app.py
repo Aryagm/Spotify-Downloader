@@ -1,5 +1,5 @@
 import streamlit as st
-from first_look import get_song
+from get_data import get_song
 from os import popen
 import os
 import time
