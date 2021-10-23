@@ -20,11 +20,11 @@ if song:
     st.write("Artist:", response[4])
     st.image(response[3])
     if b:
-        stream = popen(f"spotdl {song_url}")
+        stream = popen(f"spotdl -o '/tmp' {song_url}")
         st.warning("Dowloading Song")
         time.sleep(20)
         # So once it's done downloading something, show a download done message.
         st.success("Download done!")
-        newest = max(glob.iglob('*.[Mm][Pp]3'), key=os.path.getctime)
+        newest = max(glob.iglob(os.path.join("/tmp", '*.[Mm][Pp]3')), key=os.path.getctime)
         st.audio(newest)
         os.remove(newest)
